@@ -40,9 +40,12 @@ class MahasiswaController extends Controller
         //melakukan validasi data
         $request->validate([
             'Nim' => 'required',
+            'Email' => 'required',
             'Nama' => 'required',
             'Kelas' => 'required',
             'Jurusan' => 'required',
+            'Alamat' => 'required',
+            'Tanggal_lahir' => 'required'
         ]);
         // dd($request->all());
         //fungsi eloquent untuk menambah data
@@ -98,17 +101,23 @@ class MahasiswaController extends Controller
         //melakukan validasi data
         $request->validate([
             'Nim' => 'required',
+            'Email' => 'required',
             'Nama' => 'required',
             'Kelas' => 'required',
             'Jurusan' => 'required',
+            'Alamat' => 'required',
+            'Tanggal_lahir' => 'required'
         ]);
         //fungsi eloquent untuk mengupdate data inputan kita
         Mahasiswa::where('nim', $nim)
         ->update([
             'nim'=>$request->Nim,
+            'email'=>$request->Email,
             'nama'=>$request->Nama,
             'kelas'=>$request->Kelas,
             'jurusan'=>$request->Jurusan,
+            'alamat'=>$request->Alamat,
+            'tanggal_lahir'=>$request->Tanggal_lahir,
         ]);
         //jika data berhasil diupdate, akan kembali ke halaman utama
         return redirect()->route('mahasiswa.index')
