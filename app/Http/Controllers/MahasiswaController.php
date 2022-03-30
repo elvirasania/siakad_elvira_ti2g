@@ -15,9 +15,8 @@ class MahasiswaController extends Controller
     public function index()
     {
         //fungsi eloquent menampilkan data menggunakan pagination
-        $mahasiswa = Mahasiswa::all(); // Mengambil semua isi tabel
-        $paginate = Mahasiswa::orderBy('id_mahasiswa', 'asc')->paginate(3);
-        return view('mahasiswa.index', ['mahasiswa' => $mahasiswa,'paginate'=>$paginate]); 
+        $mahasiswa = Mahasiswa::paginate(4); // Mengambil semua isi tabel
+        return view('mahasiswa.index', compact('mahasiswa')); 
     }
 
     /**
@@ -64,6 +63,14 @@ class MahasiswaController extends Controller
         //menampilkan detail data dengan menemukan/berdasarkan Nim Mahasiswa
         $Mahasiswa = Mahasiswa::where('nim', $nim)->first();
         return view('mahasiswa.detail', compact('Mahasiswa'));
+    }
+
+    public function cari(Request $request)
+    {
+        //menampilkan detail data dengan menemukan/berdasarkan Nim Mahasiswa
+        $cari = $request->cari;
+        $mahasiswa = Mahasiswa::where('nama', 'like' ,'%'.$cari.'%')->paginate();
+        return view('mahasiswa.index', compact('mahasiswa'));
     }
 
     /**

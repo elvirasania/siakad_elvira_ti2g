@@ -22,6 +22,15 @@
 </div>
 @endif
 
+<form method="GET" action="/cari">
+  <div class="form-group">
+    <label for="cari">Cari</label>
+    <input type="text" name="cari" class="form-control" id="cari" aria-describedby="cari" >
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary btn-sm">Cari</button>
+  </div>
+</form>
 
 <table class="table table-bordered">
   <tr>
@@ -56,4 +65,6 @@
     </tr>
   @endif
 </table>
+
+{!! $mahasiswa->links() !!}
 @endsection
