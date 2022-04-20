@@ -1,16 +1,23 @@
-@extends('mahasiswa.layout')
-
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
 <div class="row">
   <div class="col-lg-12 margin-tb">
     <div class="pull-left mt-2">
-      <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
+      <h5>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h5>
       <br>
-      <h1 class="text-center">KARTU HASIL STUDI (KHS)</h1>
+      <h6 class="text-center">KARTU HASIL STUDI (KHS)</h6>
     </div>
   </div>
 </div>
-<a href="/mahasiswa/nilai/{{ $nilai->mahasiswa->nim }}/cetak" class="btn btn-primary pull-right">Cetak</a>
+
 <div class="container">
   <p><b>Nama : </b> {{ $nilai->mahasiswa->nama }}</p>
   <p><b>NIM : </b> {{ $nilai->mahasiswa->nim }}</p>
@@ -50,4 +57,5 @@
     @endif
   </table>
 </div>
-@endsection
+</body>
+</html>
