@@ -57,7 +57,7 @@ class MahasiswaController extends Controller
             'Tanggal_lahir' => 'required',
             'foto' => 'required'
         ]);
-        ddd($request);
+        
         $mahasiswa = new Mahasiswa;
         $mahasiswa->nim = $request->get('Nim');
         $mahasiswa->email = $request->get('Email');
